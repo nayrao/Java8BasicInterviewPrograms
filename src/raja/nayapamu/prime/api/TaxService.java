@@ -14,8 +14,15 @@ public class TaxService {
 		
 	}
 	
+	public static List<Employee> evaluatetaxServicesUsingJavaTerminalOperation(String input){
+		
+	return	(input.equalsIgnoreCase("tax"))?
+				 Database.getEmployees().stream().filter(emp->emp.getSalary() >50000).collect(Collectors.toList()):	
+					 Database.getEmployees().stream().filter(emp->emp.getSalary() <= 50000).collect(Collectors.toList());	
+	}
+	
 	public static void main(String[] args) {
 		
-		System.out.println(evaluateTaxusers("taxs"));
+		System.out.println(evaluatetaxServicesUsingJavaTerminalOperation("taxs"));
 	}
 }
